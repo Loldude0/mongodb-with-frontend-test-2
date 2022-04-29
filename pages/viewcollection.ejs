@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>View Col</title>
+    </head>
+    <body>
+        <h2>VIEW COLLECTIONS</h2>
+        <div>
+            <p>
+                <ol>
+                    <% for(var i = 0; i < collections.length; i++) { %>
+                        <li>
+                            <span> <%= collections[i].name %> </span>
+                        </li>
+                        <% } %>
+                </ol>
+            </p>
+        </div>
+    </body>
+</html>

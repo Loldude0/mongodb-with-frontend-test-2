@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Delete Col</title>
+    </head>
+    <body>
+        <script src="/deletecol.js"></script>
+        <h2>DELETE COLLECTIONS</h2>
+        <div>
+            <p>
+                <ol>
+                    <% for(var i = 0; i < collections.length; i++) { %>
+                        <li>
+                            <span> <%= collections[i].name %> <button id="<%=collections[i].name %>" onclick="clicked(id)" > delete </button> </span>
+                        </li>
+                        <% } %>
+                </ol>
+            </p>
+        </div>
+    </body>
+</html>
