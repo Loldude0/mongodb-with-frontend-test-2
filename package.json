@@ -1,0 +1,19 @@
+{
+  "name": "application_4",
+  "version": "1.0.0",
+  "description": "Implementing the idea of having the ability to create multiple databases and collections(and manage them) in mongodb through node.js and express.js",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/Loldude0/mongodb-test-2.git"
+  },
+  "author": "Aryan Tajne",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Loldude0/mongodb-test-2/issues"
+  },
+  "homepage": "https://github.com/Loldude0/mongodb-test-2#readme"
+}
