@@ -195,6 +195,6 @@ MongoClient.connect("mongodb://localhost:27017/application4" , {useUnifiedTopolo
     */
 
     app.listen(port, function() {
-        console.log("initiated");
+        console.log("started");
     })
 })
