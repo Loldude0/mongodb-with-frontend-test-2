@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>view results</title>
+    </head>
+    <body>
+        <script src="deletequery.js"></script>
+        <h2>VIEW QUERY RESULTS</h2>
+        <div>
+            <p>
+                <table border="2">
+                    <% for(var i = 0; i < data.length;i++){ %>
+                        <tr>
+                        <% var resmain = data[i]; %>
+                        <% var finalresult = []; %>
+                        <% for(var j in data[i]){ %>
+                            <% finalresult.push(j, resmain[j]); %>
+                       <% } %>
+                       <% finalresult.shift(); %>
+                       <% finalresult.shift(); %>
+                       <% for(var k = 0; k < finalresult.length;k++){ %>
+                            <% if(k % 2 ==0){ %>
+                                <td> <%= String(finalresult[k]) %> : <%= String(finalresult[k + 1]) %> </td>
+                            <% } %>
+                       <% } %>
+                       <td><button id="<%=(finalresult[((finalresult.length) - 3)]) + '-' + collection %>" onclick="delquery(id)" style="background-color: red; border-color: black;color: black;">DELETE</button></td>
+                        </tr>
+                   <% } %>
+                </table>
+            </p>
+        </div>
+        <p><a href="/">Home</a></p>
+    </body>
+</html>

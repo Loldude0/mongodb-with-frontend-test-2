@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>query data</title>
+    </head>
+    <body>
+        <script src="/querysearch.js"></script>
+        <h2>QUERY DATA</h2>
+        <div>
+            <form action="/query" method="post">
+                <p>
+                    COLLECTION : <select id="collection" name="collection" required>
+                        <% for(var i = 0; i < collections.length; i++) { %>
+                                <option value="<%=collections[i].name %>"><%= collections[i].name %></option>
+                            <% } %>
+                    </select>
+                </p>
+                <p>QUERY TYPE : query all<input type="radio" name="querytype" value="all" id="queryradio" required>  query custom<input type="radio" name="querytype" value="custom" onclick="addradios()" id="queryradio" required></p>
+                <div>
+                    <div id="customqueryfields">
+
+                    </div>
+                </div>
+                <p><button type="submit">QUERY</button> <button type="button" name="resetbtn" onclick="resetpg()">RESET</button></p>
+            </form>
+        </div>
+        <p><a href="/">Home</a></p>
+    </body>
+</html>

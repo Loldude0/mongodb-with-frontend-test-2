@@ -17,6 +17,15 @@ MongoClient.connect("mongodb://localhost:27017/application4" , {useUnifiedTopolo
     var collection = null;
     const db = client.db()
 
+    async function getquery(colltoquery, findfunc, res) {
+
+        await db.collection(colltoquery).find(findfunc).toArray()
+        .then(results => {
+            res.render('queryresults.ejs', { data : results, collection : colltoquery});
+        })
+        .catch(error => console.log(error))
+
+    }
 
     /*
     COLLECTION FUNCTIONS
@@ -64,17 +73,13 @@ MongoClient.connect("mongodb://localhost:27017/application4" , {useUnifiedTopolo
         colname = colname.replace(/[^a-zA-Z1-9]/g, '');
 
         db.createCollection(colname)
-        .then(result => {
-            res.redirect('createcollection');
-            console.log(result);
-        })
+        .then(result => res.redirect('createcollection'))
         .catch(error => console.log(error))
     })
 
     //delete collection endpoint
     app.delete('/collectiondelete', (req, res) => {
         var coldelname = req.body.name;
-        console.log(coldelname);
         db.collection(coldelname).drop()
         .catch(error => console.log(error));
     })
@@ -88,6 +93,15 @@ MongoClient.connect("mongodb://localhost:27017/application4" , {useUnifiedTopolo
         db.listCollections().toArray()
         .then(names => {
             res.render('adddata.ejs' , { collections : names})
+        })
+        .catch(error => console.log(error));
+    })
+
+    //query data
+    app.get('/querydata', (req, res) => {
+        db.listCollections().toArray()
+        .then(names => {
+            res.render('querydata.ejs' , { collections : names})
         })
         .catch(error => console.log(error));
     })
@@ -141,8 +155,40 @@ MongoClient.connect("mongodb://localhost:27017/application4" , {useUnifiedTopolo
         
 
         //finally, add it to the database
-        db.collection(colltoaddto).insertOne(req.body);
+        db.collection(colltoaddto).insertOne(req.body)
+        .then(result => res.redirect('/adddata'))
+        .catch(error => console.log(error))
     })
+
+    //query data endpoint
+    app.post('/query', (req, res) => {
+        
+        var collectiontoquery = req.body.collection;
+        var querytype = req.body.querytype;
+
+        if(querytype == "custom"){
+
+            delete req.body.collection;
+            delete req.body.querytype;
+
+            getquery(collectiontoquery, req.body, res);
+
+        }else if(querytype == "all"){
+
+        getquery(collectiontoquery, {}, res);
+            
+        }else{
+            console.log("error!");
+        }
+    })
+
+    //delete data
+    app.delete('/deletedata', (req, res) => {
+        var colltodelin = req.body.collection;
+        delete req.body.collection;
+        db.collection(colltodelin).deleteOne(req.body)
+        .catch(error => console.log(error))
+    })  
 
     /*
     port

@@ -7,9 +7,9 @@
         <script src="/addfield.js"></script>
         <h2>ADD DATA</h2>
         <div>
-            <form action="/datapost" method="post">
+            <form action="datapost" method="POST">
                 <p>
-                    COLLECTION : <select id="collection" name="collection">
+                    COLLECTION : <select id="collection" name="collection" required>
                         <% for(var i = 0; i < collections.length; i++) { %>
                                 <option value="<%=collections[i].name %>"><%= collections[i].name %></option>
                             <% } %>
@@ -19,7 +19,7 @@
                 <p>MIDDLE NAME : <input type="text" placeholder="middle name" name="middlename" required></p>
                 <p>LAST NAME : <input type="text" placeholder="last name" name="lastname" required></p>
                 <p>AGE : <input type="number" name="age" min="0" max="120" required></p>
-                <p>GENDER : male<input type="radio" name="gender" value="male"> female<input type="radio" name="gender" value="female" required></p>
+                <p>GENDER : male<input type="radio" name="gender" value="male" required> female<input type="radio" name="gender" value="female" required></p>
                 <p>BIRTH DATE : <input type="date" name="birthdate" required></p>
                 <p>PHONE NUMBER : <input type="text" placeholder="phone number" name="phonenumber" required></p>
                 <div>
@@ -31,5 +31,6 @@
                 <p><button type="submit">ADD</button> <button type="reset">RESET</button></p>
             </form>
         </div>
+        <p><a href="/">Home</a></p>
     </body>
 </html>

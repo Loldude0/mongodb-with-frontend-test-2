@@ -12,11 +12,12 @@
                 <ol>
                     <% for(var i = 0; i < collections.length; i++) { %>
                         <li>
-                            <span> <%= collections[i].name %> <button id="<%=collections[i].name %>" onclick="clicked(id)" > delete </button> </span>
+                            <span> <%= collections[i].name %> <button id="<%=collections[i].name %>" onclick="clicked(id)" style="background-color: red; border-color: black;color: black;"> delete </button> </span>
                         </li>
                         <% } %>
                 </ol>
             </p>
         </div>
+        <p><a href="/querydata">Back to query search</a></p>
     </body>
 </html>
