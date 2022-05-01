@@ -1,12 +1,12 @@
 # mongodb-with-frontend-test-2
 
-A webapp with a mongoDB database, you can create, view and add collections as well as add data and query data in collections.
+A webapp with a mongoDB database. You can create, view and add collections as well as add data and query data in collections.
 
 ![image](https://user-images.githubusercontent.com/70005238/166162827-6dc2c60b-befb-4b4d-9062-4474c3128957.png)
 
 The data can also have custom fields and values. (you can add fields and values by clicking the button beside extra fields)
 
-![image](https://user-images.githubusercontent.com/70005238/166162843-81eecea0-d580-468b-b81f-c78ec4860ae2.png)
+![image](https://user-images.githubusercontent.com/70005238/166163513-b75eb599-d575-4c26-a68b-aff74e1af53f.png)
 
  For querying data, there are multiple options. You can either query all data or you can query data with custom parmeters that you can select:
 
