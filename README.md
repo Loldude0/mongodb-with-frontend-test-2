@@ -1,4 +1,4 @@
-# mongodb-with-frontend-test-2
+# web-forms-with-mongodb
 
 A webapp with a mongoDB database. You can create, view and add collections as well as add data and query data in collections.
 
